@@ -10,6 +10,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/login" />
+            <option value="$PROJECT_DIR$/login/loginui" />
+            <option value="$PROJECT_DIR$/navigator" />
+            <option value="$PROJECT_DIR$/onboard" />
+            <option value="$PROJECT_DIR$/onboard/onboardui" />
+            <option value="$PROJECT_DIR$/register" />
+            <option value="$PROJECT_DIR$/register/registerui" />
+            <option value="$PROJECT_DIR$/splash" />
+            <option value="$PROJECT_DIR$/splash/splashui" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

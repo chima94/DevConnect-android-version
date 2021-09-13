@@ -9,3 +9,12 @@ dependencyResolutionManagement {
 }
 rootProject.name = "DevConnect"
 include ':app'
+include ':navigator'
+include ':splash'
+include ':splash:splashui'
+include ':onboard'
+include ':onboard:onboardui'
+include ':login'
+include ':login:loginui'
+include ':register'
+include ':register:registerui'
