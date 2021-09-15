@@ -73,6 +73,7 @@ dependencies {
 
     //navigation
     implementation "androidx.navigation:navigation-compose:$navigation"
+    implementation project(path: ':navigator')
 
 
     //accompanist
@@ -81,4 +82,23 @@ dependencies {
     //hilt jetpack
     implementation "androidx.hilt:hilt-navigation-compose:$navigation_compose"
     kapt "androidx.hilt:hilt-compiler:$hiltJetpackVersion"
+
+    //splash screen
+    implementation project(path: ':splash:splashui')
+    implementation project(path: ':splash:splashscreendestination')
+
+    //onboard screen
+    implementation project(path: ':onboard:onboardui')
+    implementation project(path: ':onboard:onboarddestination')
+
+    //login screen
+    implementation project(path: ':login:loginui')
+    implementation project(path: ':login:logindestination')
+
+    //register screen
+    implementation project(path: ':register:registerui')
+    implementation project(path: ':register:registerdestination')
+
+    //extension
+    implementation project(path: ':extensions')
 }

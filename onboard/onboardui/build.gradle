@@ -1,1 +1,15 @@
 applyComposeUIDeps(this)
+
+dependencies {
+    //compose
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+
+    implementation project(path: ':onboard:onboarddata')
+    implementation "androidx.hilt:hilt-navigation-compose:$navigation_compose"
+
+    implementation project(path: ':splash:splashscreendestination')
+    implementation project(path: ':login:logindestination')
+    implementation project(path: ':register:registerdestination')
+    implementation project(path: ':navigator')
+}
