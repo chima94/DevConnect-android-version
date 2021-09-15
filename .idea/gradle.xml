@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -10,14 +11,21 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/extensions" />
             <option value="$PROJECT_DIR$/login" />
+            <option value="$PROJECT_DIR$/login/logindestination" />
             <option value="$PROJECT_DIR$/login/loginui" />
             <option value="$PROJECT_DIR$/navigator" />
             <option value="$PROJECT_DIR$/onboard" />
+            <option value="$PROJECT_DIR$/onboard/onboarddata" />
+            <option value="$PROJECT_DIR$/onboard/onboarddestination" />
             <option value="$PROJECT_DIR$/onboard/onboardui" />
             <option value="$PROJECT_DIR$/register" />
+            <option value="$PROJECT_DIR$/register/registerdestination" />
             <option value="$PROJECT_DIR$/register/registerui" />
             <option value="$PROJECT_DIR$/splash" />
+            <option value="$PROJECT_DIR$/splash/splashdata" />
+            <option value="$PROJECT_DIR$/splash/splashscreendestination" />
             <option value="$PROJECT_DIR$/splash/splashui" />
           </set>
         </option>

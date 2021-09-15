@@ -1,1 +1,7 @@
 applyComposeUIDeps(this)
+
+dependencies {
+    //compose
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+}
