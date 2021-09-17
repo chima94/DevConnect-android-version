@@ -14,4 +14,8 @@ dependencies {
 
     //splash data
     implementation project(path: ':splash:splashdata')
+
+    //drawable
+    implementation project(path: ':resources:drawables')
+    implementation project(path: ':resources:strings')
 }

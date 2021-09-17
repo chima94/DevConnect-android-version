@@ -23,10 +23,19 @@
             <option value="$PROJECT_DIR$/register" />
             <option value="$PROJECT_DIR$/register/registerdestination" />
             <option value="$PROJECT_DIR$/register/registerui" />
+            <option value="$PROJECT_DIR$/resources" />
+            <option value="$PROJECT_DIR$/resources/color" />
+            <option value="$PROJECT_DIR$/resources/drawables" />
+            <option value="$PROJECT_DIR$/resources/strings" />
             <option value="$PROJECT_DIR$/splash" />
             <option value="$PROJECT_DIR$/splash/splashdata" />
             <option value="$PROJECT_DIR$/splash/splashscreendestination" />
             <option value="$PROJECT_DIR$/splash/splashui" />
+            <option value="$PROJECT_DIR$/style" />
+            <option value="$PROJECT_DIR$/style/color" />
+            <option value="$PROJECT_DIR$/style/shape" />
+            <option value="$PROJECT_DIR$/style/theme" />
+            <option value="$PROJECT_DIR$/style/typography" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
