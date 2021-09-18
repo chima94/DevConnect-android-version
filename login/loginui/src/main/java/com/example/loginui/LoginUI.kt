@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.authcomponents.*
 import com.example.extensions.supportWideScreen
+import com.example.logindata.LoginViewModel
 import com.example.shape.Shapes
 import com.example.toaster.ToasterViewModel
 import com.example.util.EmailState
@@ -35,14 +36,15 @@ fun Login(){
 
     val snackbarHostState = remember{ SnackbarHostState() }
     val scope = rememberCoroutineScope()
-
-    val toasterViewModel = hiltViewModel<ToasterViewModel>()
+    val loginViewModel: LoginViewModel = hiltViewModel()
 
     Scaffold(
         topBar = {
             SignInSignUpTopAppBar(
                 topAppBarText = stringResource(com.example.strings.R.string.sign_in),
-                onBackPressed = {}
+                onBackPressed = {
+                    loginViewModel.navigateUp()
+                }
             )
         },
     content = {
@@ -51,7 +53,6 @@ fun Login(){
         ) {
             Column(modifier = Modifier.fillMaxWidth()) {
                 SignInContent(
-                    buttonText = stringResource(com.example.strings.R.string.login),
                     onPasswordForget = {
                          scope.launch {
                              snackbarHostState.showSnackbar(
@@ -60,7 +61,7 @@ fun Login(){
                          }
                     },
                     onButtonClick = { email, password ->
-                        toasterViewModel.shortToast("$email, $password")
+
                     }
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -83,7 +84,6 @@ fun Login(){
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SignInContent(
-    buttonText: String,
     onPasswordForget: () -> Unit,
     onButtonClick: (String, String) -> Unit
 ){
@@ -138,7 +138,7 @@ fun SignInContent(
             shape = Shapes.medium
         ){
             Text(
-                text = buttonText
+                text = stringResource(id = com.example.strings.R.string.login)
             )
         }
     }

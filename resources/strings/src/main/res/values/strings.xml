@@ -11,4 +11,6 @@
     <string name="forget_password">Forgot password?</string>
     <string name="dismiss">dismiss</string>
     <string name="required_field_error">Fields are required</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="confirm_password">confirm password</string>
 </resources>
