@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="logo">logo</string>
+    <string name="back">back</string>
+    <string name="sign_in">Sign In</string>
+    <string name="email">email</string>
+    <string name="login">Login</string>
+    <string name="hide_password">hide password</string>
+    <string name="show_password">show password</string>
+    <string name="password">password</string>
+    <string name="forget_password">Forgot password?</string>
+    <string name="dismiss">dismiss</string>
+    <string name="required_field_error">Fields are required</string>
 </resources>

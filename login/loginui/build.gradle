@@ -4,4 +4,16 @@ dependencies {
     //compose
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
+    implementation "com.google.accompanist:accompanist-insets:$accompanist"
+
+    implementation "com.github.FunkyMuse:Composed:$composed"
+    implementation "androidx.hilt:hilt-navigation-compose:$navigation_compose"
+    
+    implementation project(path: ":style:shape")
+
+    implementation project(path: ':components:authcomponents')
+    implementation project(path: ':extensions')
+    implementation project(path: ':resources:strings')
+    implementation project(path: ':util')
+    implementation project(path: ':toaster')
 }
