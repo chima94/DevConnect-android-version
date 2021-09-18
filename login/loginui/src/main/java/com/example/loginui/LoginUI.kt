@@ -125,6 +125,7 @@ fun SignInContent(
 
         Button(
             onClick ={
+                keyboardController?.hide()
                 if(emailState.text.isEmpty() || passwordState.text.isEmpty()){
                     toasterViewModel.shortToast(com.example.strings.R.string.required_field_error)
                     return@Button
