@@ -16,4 +16,7 @@ dependencies {
     implementation project(path: ':resources:strings')
     implementation project(path: ':util')
     implementation project(path: ':toaster')
+    implementation project(path: ':onboard:onboarddestination')
+    implementation project(path: ':login:logindata')
+    implementation project(path: ':navigator')
 }

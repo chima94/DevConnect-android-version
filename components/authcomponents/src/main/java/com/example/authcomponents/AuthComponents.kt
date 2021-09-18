@@ -126,10 +126,10 @@ fun Email(
 
 @Composable
 fun Password(
+    modifier: Modifier = Modifier,
     isLoginScreen: Boolean = true,
     label : String,
     passwordState: TextFieldState,
-    modifier: Modifier = Modifier,
     imeAction: ImeAction = ImeAction.Done,
     onImeAction: () -> Unit = {}
 ){
@@ -183,7 +183,11 @@ fun Password(
         },
         isError = passwordState.showErrors(),
         keyboardOptions = KeyboardOptions(imeAction = imeAction),
-        keyboardActions = KeyboardActions(onDone = {onImeAction()})
+        keyboardActions = when(imeAction){
+            ImeAction.Next -> KeyboardActions(onNext = {onImeAction()})
+            ImeAction.Done -> KeyboardActions(onDone = {onImeAction()})
+            else -> KeyboardActions(onDone = {onImeAction()})
+        }
     )
     if(!isLoginScreen){
         passwordState.getError()?.let {error-> TextFieldError(textError = error) }

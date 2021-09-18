@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/components/authcomponents" />
             <option value="$PROJECT_DIR$/extensions" />
             <option value="$PROJECT_DIR$/login" />
+            <option value="$PROJECT_DIR$/login/logindata" />
             <option value="$PROJECT_DIR$/login/logindestination" />
             <option value="$PROJECT_DIR$/login/loginui" />
             <option value="$PROJECT_DIR$/navigator" />
@@ -23,6 +24,7 @@
             <option value="$PROJECT_DIR$/onboard/onboarddestination" />
             <option value="$PROJECT_DIR$/onboard/onboardui" />
             <option value="$PROJECT_DIR$/register" />
+            <option value="$PROJECT_DIR$/register/registerdata" />
             <option value="$PROJECT_DIR$/register/registerdestination" />
             <option value="$PROJECT_DIR$/register/registerui" />
             <option value="$PROJECT_DIR$/resources" />
