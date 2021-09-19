@@ -35,3 +35,6 @@ include ':util'
 include ':toaster'
 include ':login:logindata'
 include ':register:registerdata'
+
+include ':resources:assets'
+include ':components:errorcomponent'

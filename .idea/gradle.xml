@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/components" />
             <option value="$PROJECT_DIR$/components/authcomponents" />
+            <option value="$PROJECT_DIR$/components/errorcomponent" />
             <option value="$PROJECT_DIR$/extensions" />
             <option value="$PROJECT_DIR$/login" />
             <option value="$PROJECT_DIR$/login/logindata" />
@@ -28,6 +29,7 @@
             <option value="$PROJECT_DIR$/register/registerdestination" />
             <option value="$PROJECT_DIR$/register/registerui" />
             <option value="$PROJECT_DIR$/resources" />
+            <option value="$PROJECT_DIR$/resources/assets" />
             <option value="$PROJECT_DIR$/resources/color" />
             <option value="$PROJECT_DIR$/resources/drawables" />
             <option value="$PROJECT_DIR$/resources/strings" />
