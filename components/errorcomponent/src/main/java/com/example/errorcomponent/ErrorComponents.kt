@@ -1,4 +1,4 @@
-package com.example.authcomponents
+package com.example.errorcomponent
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*

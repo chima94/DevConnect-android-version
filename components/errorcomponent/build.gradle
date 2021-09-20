@@ -7,5 +7,4 @@ dependencies {
 
     implementation project(path: ':resources:strings')
     implementation project(path: ':util')
-    implementation project(path: ':components:errorcomponent')
 }

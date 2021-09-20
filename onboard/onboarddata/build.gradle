@@ -8,4 +8,6 @@ dependencies {
 
     implementation project(path: ':navigator')
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
+
+    implementation project(path: ':resources:assets')
 }

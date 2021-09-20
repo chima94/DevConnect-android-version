@@ -9,4 +9,22 @@ import javax.inject.Inject
 class OnboardViewModel @Inject constructor(
     private val navigator: Navigator
 ) : ViewModel(), Navigator by navigator{
+
+    val onBoardingList = listOf(
+        Triple(
+            "Developer Connect",
+            "This is a software developer social media where you can connect with other developers",
+            "developer.json"
+        ),
+        Triple(
+            "Developer Connect",
+            "This is a software developer social media where you can connect with other developers",
+            "developer.json"
+        ),
+        Triple(
+            "Developer Connect",
+            "This is a software developer social media where you can connect with other developers",
+            "developer.json"
+        )
+    )
 }

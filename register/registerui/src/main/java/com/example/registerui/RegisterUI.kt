@@ -19,6 +19,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.authcomponents.*
+import com.example.errorcomponent.ErrorSnackbar
 import com.example.extensions.supportWideScreen
 import com.example.registerdata.RegisterViewModel
 import com.example.shape.Shapes
