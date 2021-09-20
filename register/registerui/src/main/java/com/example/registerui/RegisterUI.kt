@@ -25,6 +25,7 @@ import com.example.registerdata.RegisterViewModel
 import com.example.shape.Shapes
 import com.example.util.ConfirmPasswordState
 import com.example.util.EmailState
+import com.example.util.NameState
 import com.example.util.PasswordState
 import kotlinx.coroutines.launch
 
@@ -73,22 +74,33 @@ fun Register(){
 }
 
 
+
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SignUpContent(
     onButtonClicked: (email:String, password:String)-> Unit
 ){
 
+    val nameState = remember{NameState()}
     val emailState = remember{ EmailState() }
-    val confirmPasswordFocusRequester = remember{ FocusRequester()}
+    val emailRequester = remember{FocusRequester()}
     val passwordFocusRequester = remember { FocusRequester()}
     val passwordState = remember{ PasswordState() }
     val confirmPasswordState = remember{ ConfirmPasswordState(passwordState = passwordState)}
+    val confirmPasswordFocusRequester = remember{ FocusRequester()}
     val keyboardController = LocalSoftwareKeyboardController.current
     
     Column(modifier = Modifier.fillMaxWidth()) {
-        
+
+        Name(
+            nameState = nameState,
+            onImeAction = {emailRequester.requestFocus()}
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
         Email(
+            modifier = Modifier.focusRequester(emailRequester),
             emailState = emailState,
             isLoginScreen = false,
             onImeAction = {passwordFocusRequester.requestFocus()}
@@ -122,7 +134,7 @@ fun SignUpContent(
             onClick = { onButtonClicked(emailState.text, passwordState.text) },
             modifier = Modifier.fillMaxWidth(),
             shape = Shapes.medium,
-            enabled = emailState.isValid && passwordState.isValid && confirmPasswordState.isValid
+            enabled = nameState.isValid && emailState.isValid && passwordState.isValid && confirmPasswordState.isValid
         ) {
            Text(text = stringResource(id = com.example.strings.R.string.sign_up)) 
         }
