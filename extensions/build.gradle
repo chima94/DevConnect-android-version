@@ -1,4 +1,0 @@
-applyComposeUIDeps(this)
-dependencies {
-    implementation 'androidx.activity:activity-compose:1.3.1'
-}

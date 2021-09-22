@@ -16,4 +16,6 @@
     <string name="register">Register</string>
     <string name="skip">Skip</string>
     <string name="name">name</string>
+    <string name="text_error">Error</string>
+    <string name="ok">ok</string>
 </resources>

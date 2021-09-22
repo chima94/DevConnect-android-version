@@ -3,38 +3,56 @@ package com.example.registerui
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
-import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.*
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
 import com.example.authcomponents.*
-import com.example.errorcomponent.ErrorSnackbar
-import com.example.extensions.supportWideScreen
+import com.example.composeextension.supportWideScreen
+import com.example.registerdata.RegisterState
+
 import com.example.registerdata.RegisterViewModel
 import com.example.shape.Shapes
+import com.example.statemessagecomponent.ProcessQueue
+import com.example.toaster.ToasterViewModel
 import com.example.util.ConfirmPasswordState
 import com.example.util.EmailState
 import com.example.util.NameState
 import com.example.util.PasswordState
-import kotlinx.coroutines.launch
 
 @Composable
 fun Register(){
 
-    val snackbarHostState = remember{ SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val registerViewModel: RegisterViewModel = hiltViewModel()
+    val toasterViewModel: ToasterViewModel = hiltViewModel()
+
+    val lifecycleOwner = LocalLifecycleOwner.current
+    val stateFlowLifecycleAware = remember(registerViewModel.state, lifecycleOwner){
+        registerViewModel.state.flowWithLifecycle(lifecycleOwner.lifecycle, Lifecycle.State.STARTED)
+    }
+    val state by stateFlowLifecycleAware.collectAsState(initial = RegisterState())
+
+    if(state.isLoading){
+        toasterViewModel.shortToast("LOADING")
+    }
+
+    ProcessQueue(
+        queue = state.queue,
+        stateMessageCallback = { registerViewModel.removeHeadFromQueue(state) }
+    )
+
+
 
     Scaffold(
         topBar = {
@@ -51,12 +69,12 @@ fun Register(){
             ) {
                 Column(modifier = Modifier.fillMaxWidth()) {
                     SignUpContent(
-                        onButtonClicked = {email, password ->
-                            scope.launch {
-                                snackbarHostState.showSnackbar(
-                                    message = "$email : $password"
-                                )
-                            }
+                        onButtonClicked = {name, email, password ->
+                            registerViewModel.register(
+                                name = name,
+                                email = email,
+                                password = password
+                            )
                         }
                     )
                 }
@@ -64,13 +82,13 @@ fun Register(){
         }
     )
 
-    Box(modifier = Modifier.fillMaxSize()){
+    /*Box(modifier = Modifier.fillMaxSize()){
         ErrorSnackbar(
             snackbarHostState = snackbarHostState,
             onDismiss = {snackbarHostState.currentSnackbarData?.dismiss()},
             modifier = Modifier.align(Alignment.BottomCenter)
         )
-    }
+    }*/
 }
 
 
@@ -78,7 +96,7 @@ fun Register(){
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SignUpContent(
-    onButtonClicked: (email:String, password:String)-> Unit
+    onButtonClicked: (name: String, email:String, password:String)-> Unit
 ){
 
     val nameState = remember{NameState()}
@@ -131,7 +149,7 @@ fun SignUpContent(
         Spacer(modifier = Modifier.height(30.dp))
         
         Button(
-            onClick = { onButtonClicked(emailState.text, passwordState.text) },
+            onClick = { onButtonClicked(nameState.text, emailState.text, passwordState.text) },
             modifier = Modifier.fillMaxWidth(),
             shape = Shapes.medium,
             enabled = nameState.isValid && emailState.isValid && passwordState.isValid && confirmPasswordState.isValid
