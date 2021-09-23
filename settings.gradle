@@ -20,7 +20,7 @@ include ':onboard:onboarddestination'
 include ':login:logindestination'
 include ':splash:splashdata'
 include ':onboard:onboarddata'
-include ':extensions'
+
 include ':resources:color'
 include ':resources:strings'
 include ':resources:drawables'
@@ -38,3 +38,12 @@ include ':register:registerdata'
 
 include ':resources:assets'
 include ':components:errorcomponent'
+include ':constants'
+
+include ':network:auth'
+include ':retrofit'
+
+
+include ':domain'
+include ':common:composeextension'
+include ':components:statemessagecomponent'

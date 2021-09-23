@@ -17,8 +17,9 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
+import com.example.composeextension.getActivity
 import com.example.devconnect.navigation.addComposableDestination
-import com.example.extensions.getActivity
+
 import com.example.navigator.Navigator
 import com.example.navigator.NavigatorEvent
 import com.example.splashscreendestination.SplashDestination

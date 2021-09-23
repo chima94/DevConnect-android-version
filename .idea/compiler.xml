@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="DevConnect.app" target="11" />
+      <module name="DevConnect.common.composeextension" target="11" />
+      <module name="DevConnect.components.authcomponents" target="11" />
+      <module name="DevConnect.components.errorcomponent" target="11" />
+      <module name="DevConnect.components.statemessagecomponent" target="11" />
+      <module name="DevConnect.extensions" target="11" />
+      <module name="DevConnect.login.logindata" target="11" />
+      <module name="DevConnect.login.logindestination" target="11" />
+      <module name="DevConnect.login.loginui" target="11" />
+      <module name="DevConnect.navigator" target="11" />
+      <module name="DevConnect.network.auth" target="11" />
+      <module name="DevConnect.onboard.onboarddata" target="11" />
+      <module name="DevConnect.onboard.onboarddestination" target="11" />
+      <module name="DevConnect.onboard.onboardui" target="11" />
+      <module name="DevConnect.register.registerdata" target="11" />
+      <module name="DevConnect.register.registerdestination" target="11" />
+      <module name="DevConnect.register.registerui" target="11" />
+      <module name="DevConnect.resources.assets" target="11" />
+      <module name="DevConnect.resources.color" target="11" />
+      <module name="DevConnect.resources.drawables" target="11" />
+      <module name="DevConnect.resources.strings" target="11" />
+      <module name="DevConnect.retrofit" target="11" />
+      <module name="DevConnect.splash.splashdata" target="11" />
+      <module name="DevConnect.splash.splashscreendestination" target="11" />
+      <module name="DevConnect.splash.splashui" target="11" />
+      <module name="DevConnect.style.color" target="11" />
+      <module name="DevConnect.style.shape" target="11" />
+      <module name="DevConnect.style.theme" target="11" />
+      <module name="DevConnect.style.typography" target="11" />
+      <module name="DevConnect.toaster" target="11" />
+      <module name="DevConnect.util" target="11" />
+      <module name="DevConnect.utils.authutil" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

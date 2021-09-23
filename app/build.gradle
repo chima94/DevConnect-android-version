@@ -104,7 +104,7 @@ dependencies {
     implementation project(path: ':register:registerdestination')
 
     //extension
-    implementation project(path: ':extensions')
+    implementation project(path: ':common:composeextension')
 
     //theme
     implementation project(path: ':style:theme')

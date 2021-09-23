@@ -11,8 +11,9 @@ dependencies {
     implementation project(path: ":style:shape")
 
     implementation project(path: ':components:authcomponents')
-    implementation project(path: ':components:errorcomponent')
-    implementation project(path: ':extensions')
+    //implementation project(path: ':components:errorcomponent')
+    implementation project(path: ':components:statemessagecomponent')
+    implementation project(path: ':common:composeextension')
     implementation project(path: ':resources:strings')
     implementation project(path: ':util')
     implementation project(path: ':toaster')

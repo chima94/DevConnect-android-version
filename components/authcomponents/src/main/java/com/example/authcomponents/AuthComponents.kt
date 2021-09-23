@@ -20,6 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.errorcomponent.TextFieldError
 import com.example.util.EmailState
+import com.example.util.NameState
 import com.example.util.TextFieldState
 
 
@@ -84,6 +85,7 @@ fun SignInSignUpTopAppBar(
 
 @Composable
 fun Email(
+    modifier: Modifier = Modifier,
     isLoginScreen: Boolean = true,
     emailState: TextFieldState = remember{EmailState()},
     imeAction: ImeAction = ImeAction.Next,
@@ -101,7 +103,7 @@ fun Email(
                 )
             }
         },
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .onFocusChanged { focusState ->
                 emailState.onFocusedChange(focusState.isFocused)
@@ -119,6 +121,48 @@ fun Email(
     if(!isLoginScreen){
         emailState.getError()?.let { error -> TextFieldError(textError = error) }
     }
+
+}
+
+
+
+
+@Composable
+fun Name(
+    nameState: TextFieldState = remember{NameState()},
+    imeAction: ImeAction = ImeAction.Next,
+    onImeAction: () -> Unit = {}
+){
+
+    OutlinedTextField(
+        value = nameState.text,
+        onValueChange = {nameState.text = it},
+        label = {
+            CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+                Text(
+                    text = stringResource(com.example.strings.R.string.name),
+                    style = MaterialTheme.typography.body1
+                )
+            }
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .onFocusChanged { focusState ->
+                nameState.onFocusedChange(focusState.isFocused)
+                if (!focusState.isFocused) {
+                    nameState.enableShowErrors()
+                }
+            },
+        isError = nameState.showErrors(),
+        textStyle = MaterialTheme.typography.body2,
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Text, imeAction = imeAction
+        ),
+        keyboardActions = KeyboardActions(onNext = {onImeAction()})
+    )
+
+    nameState.getError()?.let { error -> TextFieldError(textError = error) }
+
 
 }
 
