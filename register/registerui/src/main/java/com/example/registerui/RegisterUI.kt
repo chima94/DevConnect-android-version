@@ -2,6 +2,7 @@ package com.example.registerui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
@@ -43,9 +44,6 @@ fun Register(){
     }
     val state by stateFlowLifecycleAware.collectAsState(initial = RegisterState())
 
-    if(state.isLoading){
-        toasterViewModel.shortToast("LOADING")
-    }
 
     ProcessQueue(
         queue = state.queue,
@@ -69,14 +67,14 @@ fun Register(){
             ) {
                 Column(modifier = Modifier.fillMaxWidth()) {
                     SignUpContent(
-                        onButtonClicked = {name, email, password ->
-                            registerViewModel.register(
-                                name = name,
-                                email = email,
-                                password = password
-                            )
-                        }
-                    )
+                        state = state
+                    ) { name, email, password ->
+                        registerViewModel.register(
+                            name = name,
+                            email = email,
+                            password = password
+                        )
+                    }
                 }
             }
         }
@@ -96,7 +94,8 @@ fun Register(){
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SignUpContent(
-    onButtonClicked: (name: String, email:String, password:String)-> Unit
+    state: RegisterState,
+    onButtonClicked: (name: String, email: String, password: String) -> Unit
 ){
 
     val nameState = remember{NameState()}
@@ -152,9 +151,15 @@ fun SignUpContent(
             onClick = { onButtonClicked(nameState.text, emailState.text, passwordState.text) },
             modifier = Modifier.fillMaxWidth(),
             shape = Shapes.medium,
-            enabled = nameState.isValid && emailState.isValid && passwordState.isValid && confirmPasswordState.isValid
+            enabled = nameState.isValid && emailState.isValid &&
+                    passwordState.isValid && confirmPasswordState.isValid && !state.isLoading
         ) {
            Text(text = stringResource(id = com.example.strings.R.string.sign_up)) 
+        }
+
+        Spacer(modifier = Modifier.height(10.dp))
+        if(state.isLoading){
+            CircularProgressIndicator()
         }
     }
 }

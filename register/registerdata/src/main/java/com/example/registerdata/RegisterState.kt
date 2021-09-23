@@ -5,8 +5,6 @@ import com.example.util.StateMessage
 
 data class RegisterState(
     val isLoading: Boolean = false,
-    val email: String = "",
-    val name: String = "",
-    val password: String = "",
+    val token: String = "",
     val queue: Queue<StateMessage> = Queue(mutableListOf())
 )

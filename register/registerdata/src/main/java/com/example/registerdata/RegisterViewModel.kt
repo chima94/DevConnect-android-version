@@ -34,7 +34,7 @@ class RegisterViewModel @Inject constructor(
             _state.value = RegisterState(isLoading = dataState.isLoading)
 
             dataState.data?.let { authToken ->
-                _state.value = RegisterState(email = authToken.token)
+                _state.value = RegisterState(token = authToken.token)
             }
 
             dataState.stateMessage?.let { stateMessage ->

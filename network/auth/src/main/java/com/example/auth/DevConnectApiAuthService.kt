@@ -1,17 +1,10 @@
 package com.example.auth
 
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface DevConnectApiAuthService {
 
 
-    @POST("api/users")
-    @FormUrlEncoded
-    suspend fun register(
-        @Field("name") name: String,
-        @Field("email") email: String,
-        @Field("password") password: String
-    ): RegistrationResponses
+    @POST("users")
+    suspend fun register(@Body hashMap: HashMap<String, String>): RegistrationResponses
 }
