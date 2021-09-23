@@ -6,6 +6,7 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -159,7 +160,9 @@ fun SignUpContent(
 
         Spacer(modifier = Modifier.height(10.dp))
         if(state.isLoading){
-            CircularProgressIndicator()
+            CircularProgressIndicator(
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            )
         }
     }
 }
