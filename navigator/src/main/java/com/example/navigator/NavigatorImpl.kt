@@ -25,4 +25,8 @@ internal class NavigatorImpl @Inject constructor(): Navigator {
     override fun navigatePop(route: String): Boolean {
         return navigationEvents.trySend(NavigatorEvent.NavigatePop(route)).isSuccess
     }
+
+    override fun navigateActivity(): Boolean {
+        return navigationEvents.trySend(NavigatorEvent.NavigateActivity).isSuccess
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.devconnect
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -17,8 +18,9 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
+import com.example.bottomnavigation.DevBottomNavigation
 import com.example.composeextension.getActivity
-import com.example.devconnect.navigation.addComposableDestination
+import com.example.devconnect.navigation.intro.addComposableDestination
 
 import com.example.navigator.Navigator
 import com.example.navigator.NavigatorEvent
@@ -35,26 +37,39 @@ class MainActivity : ComponentActivity() {
     @Inject lateinit var navigator: Navigator
 
     private var darkTheme = MutableStateFlow(false)
+    private var isSignedIn = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //WindowCompat.setDecorFitsSystemWindows(window, false)
 
+        if(isSignedIn){
+            homeActivity()
+        }
+
         setContent {
             DevConnectorTheme(darkThemeFlow = darkTheme, defaultValue = false) {
                 Surface(color = MaterialTheme.colors.background) {
-                    DevConnectScaffold(navigator = navigator)
+                    DevConnectScaffold(navigator = navigator){
+                        homeActivity()
+                    }
                 }
             }
         }
+    }
+
+
+    private fun homeActivity(){
+        startActivity(Intent(this, HomeActivity::class.java))
+        finish()
     }
 }
 
 
 
 @Composable
-fun DevConnectScaffold(navigator: Navigator){
+fun DevConnectScaffold(navigator: Navigator, homeActivity: () -> Unit){
 
     val navController = rememberNavController()
     val context = LocalContext.current
@@ -71,6 +86,9 @@ fun DevConnectScaffold(navigator: Navigator){
                 is NavigatorEvent.Directions -> {
                    navController.navigate(event.destination, event.builder)
                 }
+                is NavigatorEvent.NavigateActivity ->{
+                    homeActivity()
+                }
             }
         }
     }
@@ -86,6 +104,7 @@ fun DevConnectScaffold(navigator: Navigator){
         )
     }
 }
+
 
 
 @Preview(showBackground = true)

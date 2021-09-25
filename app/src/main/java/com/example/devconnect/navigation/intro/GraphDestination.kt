@@ -1,4 +1,4 @@
-package com.example.devconnect.navigation
+package com.example.devconnect.navigation.intro
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
@@ -18,7 +18,7 @@ private val composableDestinations: Map<NavigationDestination, @Composable () ->
     SplashDestination to { Splash() },
     OnboardDestination to { OnBoard() },
     LoginDestination to { Login() },
-    RegisterDestination to { Register() }
+    RegisterDestination to { Register() },
 )
 
 

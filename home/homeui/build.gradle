@@ -1,0 +1,23 @@
+applyComposeUIDeps(this)
+
+dependencies {
+    //navigation
+    implementation "androidx.navigation:navigation-compose:$navigation"
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "com.google.accompanist:accompanist-insets:$accompanist"
+
+    implementation project(path: ':navigator')
+
+
+    //hilt jetpack
+    implementation "androidx.hilt:hilt-navigation-compose:$navigation_compose"
+
+
+    implementation project(path: ':developers:developersui')
+    implementation project(path: ':posts:postsui')
+    implementation project(path: ':profile:profileui')
+    implementation project(path: ':setting:settingui')
+    implementation project(path: ':bottomnavigation')
+    implementation project(path: ':home:homenavigation')
+}

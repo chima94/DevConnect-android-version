@@ -21,6 +21,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import com.example.authcomponents.*
 import com.example.composeextension.supportWideScreen
+import com.example.homedestination.HomeDestination
 import com.example.registerdata.RegisterState
 
 import com.example.registerdata.RegisterViewModel
@@ -70,11 +71,12 @@ fun Register(){
                     SignUpContent(
                         state = state
                     ) { name, email, password ->
-                        registerViewModel.register(
+                        /*registerViewModel.register(
                             name = name,
                             email = email,
                             password = password
-                        )
+                        )*/
+                        registerViewModel.navigateActivity()
                     }
                 }
             }

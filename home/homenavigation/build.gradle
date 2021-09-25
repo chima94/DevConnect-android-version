@@ -1,0 +1,12 @@
+applyComposeUIDeps(this)
+
+dependencies {
+
+    implementation "androidx.navigation:navigation-compose:$navigation"
+
+    implementation project(path: ':bottomnavigation')
+    implementation project(path: ':developers:developersui')
+    implementation project(path: ':posts:postsui')
+    implementation project(path: ':profile:profileui')
+    implementation project(path: ':setting:settingui')
+}

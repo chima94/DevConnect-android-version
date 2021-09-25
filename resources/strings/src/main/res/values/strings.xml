@@ -18,4 +18,8 @@
     <string name="name">name</string>
     <string name="text_error">Error</string>
     <string name="ok">ok</string>
+    <string name="developers">Developers</string>
+    <string name="posts">posts</string>
+    <string name="profile">profile</string>
+    <string name="settings">settings</string>
 </resources>
