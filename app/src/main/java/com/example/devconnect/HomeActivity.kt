@@ -30,7 +30,7 @@ class HomeActivity : ComponentActivity() {
 
     @Inject lateinit var navigator: Navigator
 
-    private var darkTheme = MutableStateFlow(false)
+    private var darkTheme = MutableStateFlow(false) //dark theme
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
