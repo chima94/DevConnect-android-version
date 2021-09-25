@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/bottomnavigation" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/common/composeextension" />
             <option value="$PROJECT_DIR$/components" />
@@ -18,6 +19,8 @@
             <option value="$PROJECT_DIR$/components/errorcomponent" />
             <option value="$PROJECT_DIR$/components/statemessagecomponent" />
             <option value="$PROJECT_DIR$/constants" />
+            <option value="$PROJECT_DIR$/developers" />
+            <option value="$PROJECT_DIR$/developers/developersui" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/login" />
             <option value="$PROJECT_DIR$/login/logindata" />
@@ -30,6 +33,10 @@
             <option value="$PROJECT_DIR$/onboard/onboarddata" />
             <option value="$PROJECT_DIR$/onboard/onboarddestination" />
             <option value="$PROJECT_DIR$/onboard/onboardui" />
+            <option value="$PROJECT_DIR$/posts" />
+            <option value="$PROJECT_DIR$/posts/postsui" />
+            <option value="$PROJECT_DIR$/profile" />
+            <option value="$PROJECT_DIR$/profile/profileui" />
             <option value="$PROJECT_DIR$/register" />
             <option value="$PROJECT_DIR$/register/registerdata" />
             <option value="$PROJECT_DIR$/register/registerdestination" />
@@ -40,6 +47,8 @@
             <option value="$PROJECT_DIR$/resources/drawables" />
             <option value="$PROJECT_DIR$/resources/strings" />
             <option value="$PROJECT_DIR$/retrofit" />
+            <option value="$PROJECT_DIR$/setting" />
+            <option value="$PROJECT_DIR$/setting/settingui" />
             <option value="$PROJECT_DIR$/splash" />
             <option value="$PROJECT_DIR$/splash/splashdata" />
             <option value="$PROJECT_DIR$/splash/splashscreendestination" />

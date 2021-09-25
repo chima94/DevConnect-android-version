@@ -1,0 +1,11 @@
+applyComposeUIDeps(this)
+
+dependencies {
+    //accompanist
+    implementation "com.google.accompanist:accompanist-insets:$accompanist"
+    //compose
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+
+
+}

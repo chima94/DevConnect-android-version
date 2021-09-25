@@ -47,3 +47,15 @@ include ':retrofit'
 include ':domain'
 include ':common:composeextension'
 include ':components:statemessagecomponent'
+include ':bottomnavigation'
+
+include ':developers:developersui'
+
+include ':posts:postsui'
+
+include ':profile:profileui'
+
+
+include ':setting:settingui'
+
+
