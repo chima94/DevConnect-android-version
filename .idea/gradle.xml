@@ -12,6 +12,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/bottomnavigation" />
+            <option value="$PROJECT_DIR$/cache" />
+            <option value="$PROJECT_DIR$/cache/account" />
+            <option value="$PROJECT_DIR$/cache/appdatabase" />
+            <option value="$PROJECT_DIR$/cache/cacheauth" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/common/composeextension" />
             <option value="$PROJECT_DIR$/components" />
@@ -19,6 +23,7 @@
             <option value="$PROJECT_DIR$/components/errorcomponent" />
             <option value="$PROJECT_DIR$/components/statemessagecomponent" />
             <option value="$PROJECT_DIR$/constants" />
+            <option value="$PROJECT_DIR$/datastore" />
             <option value="$PROJECT_DIR$/developers" />
             <option value="$PROJECT_DIR$/developers/developersui" />
             <option value="$PROJECT_DIR$/domain" />
@@ -28,7 +33,8 @@
             <option value="$PROJECT_DIR$/login/loginui" />
             <option value="$PROJECT_DIR$/navigator" />
             <option value="$PROJECT_DIR$/network" />
-            <option value="$PROJECT_DIR$/network/auth" />
+            <option value="$PROJECT_DIR$/network/networkauth" />
+            <option value="$PROJECT_DIR$/network/networkresponses" />
             <option value="$PROJECT_DIR$/onboard" />
             <option value="$PROJECT_DIR$/onboard/onboarddata" />
             <option value="$PROJECT_DIR$/onboard/onboarddestination" />
@@ -47,6 +53,7 @@
             <option value="$PROJECT_DIR$/resources/drawables" />
             <option value="$PROJECT_DIR$/resources/strings" />
             <option value="$PROJECT_DIR$/retrofit" />
+            <option value="$PROJECT_DIR$/session" />
             <option value="$PROJECT_DIR$/setting" />
             <option value="$PROJECT_DIR$/setting/settingui" />
             <option value="$PROJECT_DIR$/splash" />

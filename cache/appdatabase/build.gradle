@@ -1,0 +1,11 @@
+plugins {
+    id 'kotlin-kapt'
+}
+
+applyRoomDeps(this)
+applyHiltDeps(this)
+
+dependencies {
+    implementation project(path: ':cache:account')
+    implementation project(path: ':cache:cacheauth')
+}

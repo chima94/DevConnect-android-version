@@ -9,7 +9,8 @@ import com.example.util.UIComponentType
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import retrofit2.HttpException
-
+import retrofit2.Retrofit
+import java.net.SocketTimeoutException
 
 
 fun <T> handleUseCaseException(e: Throwable): DataState<T>{
@@ -45,6 +46,7 @@ private fun convertErrorBody(throwable: HttpException) : String?{
             .fromJson(throwable.response()?.errorBody()?.charStream(),
                 ErrorResponse::class.java)
         errorResponse.error[0].msg
+
     }catch (exception: Exception){
         Constant.INVALID_CREDENTIALS
     }

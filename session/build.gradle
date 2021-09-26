@@ -1,0 +1,18 @@
+plugins {
+    id 'kotlin-kapt'
+}
+
+applyHiltDeps(this)
+
+dependencies {
+    implementation project(path: ':cache:account')
+    implementation project(path: ':cache:cacheauth')
+    implementation project(path: ':cache:appdatabase')
+    implementation project(path: ':util')
+    implementation project(path: ':domain')
+    implementation project(path: ':constants')
+    implementation project(path: ':datastore')
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
+
+}

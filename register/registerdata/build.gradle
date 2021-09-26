@@ -8,8 +8,14 @@ applyHiltDeps(this)
 dependencies {
     implementation project(path: ':navigator')
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
-    implementation project(path: ':network:auth')
+    implementation project(path: ':network:networkauth')
+    implementation project(path: ':network:networkresponses')
     implementation project(path: ':util')
     implementation project(path: ':domain')
     implementation project(path: ':retrofit')
+    implementation project(path: ':cache:appdatabase')
+    implementation project(path: ':cache:account')
+    implementation project(path: ':cache:cacheauth')
+    implementation project(path: ':datastore')
+    implementation project(path: ':constants')
 }

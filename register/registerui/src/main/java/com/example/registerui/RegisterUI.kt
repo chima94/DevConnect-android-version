@@ -21,7 +21,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import com.example.authcomponents.*
 import com.example.composeextension.supportWideScreen
-import com.example.homedestination.HomeDestination
 import com.example.registerdata.RegisterState
 
 import com.example.registerdata.RegisterViewModel
@@ -45,6 +44,10 @@ fun Register(){
         registerViewModel.state.flowWithLifecycle(lifecycleOwner.lifecycle, Lifecycle.State.STARTED)
     }
     val state by stateFlowLifecycleAware.collectAsState(initial = RegisterState())
+
+    if(state.token.isNotEmpty()){
+        toasterViewModel.shortToast(state.token)
+    }
 
 
     ProcessQueue(
@@ -71,12 +74,11 @@ fun Register(){
                     SignUpContent(
                         state = state
                     ) { name, email, password ->
-                        /*registerViewModel.register(
+                        registerViewModel.register(
                             name = name,
                             email = email,
                             password = password
-                        )*/
-                        registerViewModel.navigateActivity()
+                        )
                     }
                 }
             }
@@ -152,7 +154,7 @@ fun SignUpContent(
         
         Button(
             onClick = { onButtonClicked(nameState.text, emailState.text, passwordState.text) },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().height(50.dp),
             shape = Shapes.medium,
             enabled = nameState.isValid && emailState.isValid &&
                     passwordState.isValid && confirmPasswordState.isValid && !state.isLoading

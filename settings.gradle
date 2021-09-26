@@ -40,7 +40,7 @@ include ':resources:assets'
 include ':components:errorcomponent'
 include ':constants'
 
-include ':network:auth'
+include ':network:networkauth'
 include ':retrofit'
 
 
@@ -59,3 +59,10 @@ include ':profile:profileui'
 include ':setting:settingui'
 
 
+include ':network:networkresponses'
+include ':cache'
+include ':cache:account'
+include ':cache:appdatabase'
+include ':cache:cacheauth'
+include ':datastore'
+include ':session'

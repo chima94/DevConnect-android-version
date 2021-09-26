@@ -44,10 +44,6 @@ class MainActivity : ComponentActivity() {
 
         //WindowCompat.setDecorFitsSystemWindows(window, false)
 
-        if(isSignedIn){
-            homeActivity()
-        }
-
         setContent {
             DevConnectorTheme(darkThemeFlow = darkTheme, defaultValue = false) {
                 Surface(color = MaterialTheme.colors.background) {
