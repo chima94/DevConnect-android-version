@@ -31,6 +31,7 @@ buildscript {
         hilt_work = "1.0.0"
         lottieCompose = "1.0.0-beta03-1"
         lottie = "3.6.1"
+        junit5 = "5.7.0"
 
         //compilation
         compileVersion = 31
@@ -44,13 +45,16 @@ buildscript {
     }
 
     repositories {
+        gradlePluginPortal()
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.1.0-alpha11'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21'
         classpath "com.google.dagger:hilt-android-gradle-plugin:$daggerVersion"
+        classpath "de.mannodermaus.gradle.plugins:android-junit5:1.7.0.0"
 
     }
 }

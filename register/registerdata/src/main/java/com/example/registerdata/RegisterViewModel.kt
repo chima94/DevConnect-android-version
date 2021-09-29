@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.navigator.Navigator
+import com.example.session.SessionEvent
+import com.example.session.SessionManager
 import com.example.util.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +19,8 @@ import javax.inject.Inject
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
     private val navigator: Navigator,
-    private val registerDatasource: RegisterDatasource
+    private val registerDatasource: RegisterDatasource,
+    private val sessionManager: SessionManager
 ) : ViewModel(), Navigator by navigator{
 
 
@@ -34,7 +37,7 @@ class RegisterViewModel @Inject constructor(
             _state.value = RegisterState(isLoading = dataState.isLoading)
 
             dataState.data?.let { authToken ->
-                _state.value = RegisterState(token = authToken.token)
+                sessionManager.onTriggerEvent(SessionEvent.Login(authToken = authToken))
             }
 
             dataState.stateMessage?.let { stateMessage ->

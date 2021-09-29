@@ -1,6 +1,9 @@
 package com.example.registerdata
 
-import com.example.auth.DevConnectApiAuthService
+import com.example.account.AccountDao
+import com.example.cacheauth.AuthTokenDao
+import com.example.datastore.AppDataStore
+import com.example.networkauth.DevConnectApiAuthService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,8 +18,11 @@ object RegisterModule {
     @Singleton
     @Provides
     fun provideRegister(
-        service: DevConnectApiAuthService
+        service: DevConnectApiAuthService,
+        accountDao: AccountDao,
+        authTokenDao: AuthTokenDao,
+        appDataStore: AppDataStore
     ):RegisterDatasource{
-        return RegisterDatasource(service)
+        return RegisterDatasource(service, accountDao, authTokenDao, appDataStore)
     }
 }

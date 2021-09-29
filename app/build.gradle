@@ -137,4 +137,16 @@ dependencies {
     //theme
     implementation project(path: ':style:theme')
 
+    //session
+    implementation project(path: ':session')
+
+    //component
+    implementation project(path: ':components:statemessagecomponent')
+
+    //domain
+    implementation project(path: ':domain')
+
+    //util
+    implementation project(path: ':util')
+
 }

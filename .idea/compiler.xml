@@ -4,10 +4,14 @@
     <bytecodeTargetLevel target="1.8">
       <module name="DevConnect.app" target="11" />
       <module name="DevConnect.bottomnavigation" target="11" />
+      <module name="DevConnect.cache.account" target="11" />
+      <module name="DevConnect.cache.appdatabase" target="11" />
+      <module name="DevConnect.cache.cacheauth" target="11" />
       <module name="DevConnect.common.composeextension" target="11" />
       <module name="DevConnect.components.authcomponents" target="11" />
       <module name="DevConnect.components.errorcomponent" target="11" />
       <module name="DevConnect.components.statemessagecomponent" target="11" />
+      <module name="DevConnect.datastore" target="11" />
       <module name="DevConnect.developers.developersui" target="11" />
       <module name="DevConnect.extensions" target="11" />
       <module name="DevConnect.home.homedestination" target="11" />
@@ -17,7 +21,8 @@
       <module name="DevConnect.login.logindestination" target="11" />
       <module name="DevConnect.login.loginui" target="11" />
       <module name="DevConnect.navigator" target="11" />
-      <module name="DevConnect.network.auth" target="11" />
+      <module name="DevConnect.network.networkauth" target="11" />
+      <module name="DevConnect.network.networkresponses" target="11" />
       <module name="DevConnect.onboard.onboarddata" target="11" />
       <module name="DevConnect.onboard.onboarddestination" target="11" />
       <module name="DevConnect.onboard.onboardui" target="11" />
@@ -31,6 +36,7 @@
       <module name="DevConnect.resources.drawables" target="11" />
       <module name="DevConnect.resources.strings" target="11" />
       <module name="DevConnect.retrofit" target="11" />
+      <module name="DevConnect.session" target="11" />
       <module name="DevConnect.setting.settingui" target="11" />
       <module name="DevConnect.settings" target="11" />
       <module name="DevConnect.splash.splashdata" target="11" />
