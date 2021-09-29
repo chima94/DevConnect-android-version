@@ -14,6 +14,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -21,11 +22,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
 import com.example.authcomponents.*
 import com.example.composeextension.supportWideScreen
-import com.example.errorcomponent.ErrorSnackbar
+import com.example.logindata.LoginState
+
 import com.example.logindata.LoginViewModel
 import com.example.shape.Shapes
+import com.example.statemessagecomponent.ProcessQueue
 import com.example.toaster.ToasterViewModel
 import com.example.util.EmailState
 import com.example.util.PasswordState
@@ -38,6 +43,19 @@ fun Login(){
     val snackbarHostState = remember{ SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val loginViewModel: LoginViewModel = hiltViewModel()
+
+
+    val lifecycleOwner = LocalLifecycleOwner.current
+    val stateFlowLifecycleAware = remember(loginViewModel.state, lifecycleOwner){
+        loginViewModel.state.flowWithLifecycle(lifecycleOwner.lifecycle, Lifecycle.State.STARTED)
+    }
+    val state by stateFlowLifecycleAware.collectAsState(initial = LoginState())
+
+
+    ProcessQueue(
+        queue = state.queue,
+        stateMessageCallback = { loginViewModel.removeHeadFromQueue(state) }
+    )
 
     Scaffold(
         topBar = {
@@ -54,6 +72,7 @@ fun Login(){
         ) {
             Column(modifier = Modifier.fillMaxWidth()) {
                 SignInContent(
+                    state = state,
                     onPasswordForget = {
                          scope.launch {
                              snackbarHostState.showSnackbar(
@@ -62,7 +81,10 @@ fun Login(){
                          }
                     },
                     onButtonClick = { email, password ->
-
+                        loginViewModel.login(
+                            email = email,
+                            password = password
+                        )
                     }
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -71,13 +93,6 @@ fun Login(){
     }
     )
 
-    Box(modifier = Modifier.fillMaxSize()){
-        ErrorSnackbar(
-            snackbarHostState = snackbarHostState,
-            onDismiss = {snackbarHostState.currentSnackbarData?.dismiss()},
-            modifier = Modifier.align(Alignment.BottomCenter)
-        )
-    }
 }
 
 
@@ -85,6 +100,7 @@ fun Login(){
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SignInContent(
+    state: LoginState,
     onPasswordForget: () -> Unit,
     onButtonClick: (String, String) -> Unit
 ){
@@ -136,10 +152,18 @@ fun SignInContent(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
-            shape = Shapes.medium
+            shape = Shapes.medium,
+            enabled = !state.isLoading
         ){
             Text(
                 text = stringResource(id = com.example.strings.R.string.login)
+            )
+        }
+
+        Spacer(modifier = Modifier.height(10.dp))
+        if(state.isLoading){
+            CircularProgressIndicator(
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
         }
     }
