@@ -45,10 +45,6 @@ fun Register(){
     }
     val state by stateFlowLifecycleAware.collectAsState(initial = RegisterState())
 
-    if(state.token.isNotEmpty()){
-        toasterViewModel.shortToast(state.token)
-    }
-
 
     ProcessQueue(
         queue = state.queue,

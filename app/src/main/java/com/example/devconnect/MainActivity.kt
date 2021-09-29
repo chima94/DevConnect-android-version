@@ -13,8 +13,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
@@ -24,20 +29,24 @@ import com.example.devconnect.navigation.intro.addComposableDestination
 
 import com.example.navigator.Navigator
 import com.example.navigator.NavigatorEvent
+import com.example.session.SessionManager
+import com.example.session.SessionState
 import com.example.splashscreendestination.SplashDestination
+import com.example.statemessagecomponent.ProcessQueue
 import com.example.theme.DevConnectorTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     @Inject lateinit var navigator: Navigator
+    @Inject lateinit var sessionManager: SessionManager
 
     private var darkTheme = MutableStateFlow(false)
-    private var isSignedIn = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +56,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             DevConnectorTheme(darkThemeFlow = darkTheme, defaultValue = false) {
                 Surface(color = MaterialTheme.colors.background) {
-                    DevConnectScaffold(navigator = navigator){
+                    DevConnectScaffold(navigator = navigator, sessionManager = sessionManager){
                         homeActivity()
                     }
                 }
@@ -65,7 +74,10 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun DevConnectScaffold(navigator: Navigator, homeActivity: () -> Unit){
+fun DevConnectScaffold(
+    navigator: Navigator,
+    sessionManager: SessionManager,
+    homeActivity: () -> Unit){
 
     val navController = rememberNavController()
     val context = LocalContext.current
@@ -99,8 +111,30 @@ fun DevConnectScaffold(navigator: Navigator, homeActivity: () -> Unit){
             }
         )
     }
+
+    SubscribeAuthObserver(
+        sessionManager = sessionManager,
+        homeActivity = homeActivity
+    )
 }
 
+
+@Composable
+private fun SubscribeAuthObserver(sessionManager: SessionManager, homeActivity: () -> Unit){
+
+    val lifecycleOwner = LocalLifecycleOwner.current
+    val stateFlowLifecycleAware = remember(sessionManager.state, lifecycleOwner){
+        sessionManager.state.flowWithLifecycle(lifecycleOwner.lifecycle, Lifecycle.State.STARTED)
+    }
+    val state by stateFlowLifecycleAware.collectAsState(initial = SessionState())
+
+    state.authToken?.let { token ->
+        if(token.account_email.isNotEmpty()){
+            homeActivity()
+        }
+    }
+
+}
 
 
 @Preview(showBackground = true)

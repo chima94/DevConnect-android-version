@@ -7,9 +7,9 @@ import com.example.cacheauth.toEntity
 import com.example.constants.Constant
 import com.example.datastore.AppDataStore
 import com.example.datastore.AppDataStoreManager
+import com.example.domain.Account
 import com.example.networkauth.DevConnectApiAuthService
 import com.example.domain.AuthToken
-import com.example.networkresponses.toAccount
 import com.example.retrofit.handleUseCaseException
 import com.example.util.DataState
 import kotlinx.coroutines.flow.Flow
@@ -41,13 +41,16 @@ class RegisterDatasource(
 
         val registerResponse = service.register(hashMap)
 
-        val userResponse = service.user(registerResponse.token).toAccount()
+        //cache account details
+        val account = Account(
+            name = name,
+            email = email,
+        )
+        accountDao.insertAndReplace(account.toEntity())
 
-        //cache user information
-        accountDao.insertAndReplace(userResponse.toEntity())
 
         //cache auth token
-        val authToken = AuthToken(userResponse.id, registerResponse.token)
+        val authToken = AuthToken(account_email = email, token = registerResponse.token)
         val result = authTokenDao.insert(authToken.toEntity())
         if(result < 0){
             throw Exception(Constant.ERROR_SAVE_AUTH_TOKEN)

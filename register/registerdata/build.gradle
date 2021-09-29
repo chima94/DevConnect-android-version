@@ -1,5 +1,6 @@
 plugins {
     id 'kotlin-kapt'
+    id 'de.mannodermaus.android-junit5'
 }
 
 applyHiltDeps(this)
@@ -18,4 +19,15 @@ dependencies {
     implementation project(path: ':cache:cacheauth')
     implementation project(path: ':datastore')
     implementation project(path: ':constants')
+    implementation project(path: ':session')
+
+    //testing
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.1'
+
+    //JUnit
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit5"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit5"
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
 }

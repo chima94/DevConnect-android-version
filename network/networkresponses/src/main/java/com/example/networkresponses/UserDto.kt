@@ -18,12 +18,3 @@ class UserDto(
 )
 
 
-fun UserDto.toAccount(): Account{
-    return Account(
-        id = this._id,
-        name = this.name,
-        email = this.email,
-        avatar = this.avatar,
-        date = this.date
-    )
-}
