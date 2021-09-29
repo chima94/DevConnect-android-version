@@ -1,6 +1,6 @@
 package com.example.registerdata
 
-object RegisterResponses {
+object AuthResponse {
 
     val email = "chima@gmail.com"
     val password = "1234567890"
@@ -9,7 +9,7 @@ object RegisterResponses {
 
     const val error_msg = "User already exists"
 
-    val registerSuccess = "{\"token\": \"$token\"}"
+    val AuthSuccess = "{\"token\": \"$token\"}"
     val userAlreadyRegisterWithThisEmail = "{\"msg\": \"$error_msg\"}"
 }
 

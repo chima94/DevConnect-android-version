@@ -14,7 +14,6 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.HTTP
 import java.net.HttpURLConnection
 
 class RegisterTest {
@@ -62,13 +61,13 @@ class RegisterTest {
         mockWebServer.enqueue(
             MockResponse()
                 .setResponseCode(HttpURLConnection.HTTP_OK)
-                .setBody(RegisterResponses.registerSuccess)
+                .setBody(AuthResponse.AuthSuccess)
 
         )
-        val email = RegisterResponses.email
-        val password = RegisterResponses.password
-        val token = RegisterResponses.token
-        val username = RegisterResponses.username
+        val email = AuthResponse.email
+        val password = AuthResponse.password
+        val token = AuthResponse.token
+        val username = AuthResponse.username
 
         var cachedToken = authTokenDao.searchByEmail(email)
         assert(cachedToken == null)
@@ -104,13 +103,13 @@ class RegisterTest {
         mockWebServer.enqueue(
             MockResponse()
                 .setResponseCode(HttpURLConnection.HTTP_BAD_REQUEST)
-                .setBody(RegisterResponses.registerSuccess)
+                .setBody(AuthResponse.AuthSuccess)
         )
 
-        val email = RegisterResponses.email
-        val password = RegisterResponses.password
-        val token = RegisterResponses.token
-        val username = RegisterResponses.username
+        val email = AuthResponse.email
+        val password = AuthResponse.password
+        val token = AuthResponse.token
+        val username = AuthResponse.username
 
         //confirm no Account is stored in cache
         var cacheToken = authTokenDao.searchByEmail(email)
