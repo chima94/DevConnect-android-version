@@ -1,0 +1,18 @@
+applyComposeUIDeps(this)
+applyCoilDep(this)
+
+dependencies {
+    //resources
+    implementation project(path: ':resources:strings')
+    implementation project(path: ':resources:drawables')
+
+    //style
+    implementation project(path: ':style:theme')
+    implementation project(path: ':style:shape')
+    implementation project(path: ':style:color')
+
+    implementation project(path: ':components:loadingcomponent')
+    implementation project(path: ':network:networkresponses')
+
+    implementation "androidx.compose.material:material:$compose_version"
+}

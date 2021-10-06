@@ -1,0 +1,8 @@
+plugins {
+    id 'kotlin-kapt'
+}
+applyHiltDeps(this)
+dependencies {
+    implementation "androidx.datastore:datastore-preferences:$data_store"
+    implementation 'androidx.test.ext:junit-ktx:1.1.3'
+}

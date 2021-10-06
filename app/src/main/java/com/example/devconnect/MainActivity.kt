@@ -25,6 +25,7 @@ import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import com.example.bottomnavigation.DevBottomNavigation
 import com.example.composeextension.getActivity
+import com.example.constants.Constant
 import com.example.devconnect.navigation.intro.addComposableDestination
 
 import com.example.navigator.Navigator
@@ -66,7 +67,8 @@ class MainActivity : ComponentActivity() {
 
 
     private fun homeActivity(){
-        startActivity(Intent(this, HomeActivity::class.java))
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
         finish()
     }
 }
@@ -94,9 +96,6 @@ fun DevConnectScaffold(
                 is NavigatorEvent.Directions -> {
                    navController.navigate(event.destination, event.builder)
                 }
-                is NavigatorEvent.NavigateActivity ->{
-                    homeActivity()
-                }
             }
         }
     }
@@ -120,7 +119,7 @@ fun DevConnectScaffold(
 
 
 @Composable
-private fun SubscribeAuthObserver(sessionManager: SessionManager, homeActivity: () -> Unit){
+private fun SubscribeAuthObserver(sessionManager: SessionManager, homeActivity: () ->Unit){
 
     val lifecycleOwner = LocalLifecycleOwner.current
     val stateFlowLifecycleAware = remember(sessionManager.state, lifecycleOwner){

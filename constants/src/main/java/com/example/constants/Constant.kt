@@ -10,5 +10,6 @@ class Constant{
         val PREVIOUS_AUTH_USER = "com.example.constants.PREVIOUS_AUTH_USER"
         const val ERROR_NO_PREVIOUS_AUTH_USER = "No previously authenticated user. This error can be ignored."
         const val RESPONSE_CHECK_PREVIOUS_AUTH_USER_DONE = "Done checking for previously authenticated user."
+        const val TOKEN = "token"
     }
 }

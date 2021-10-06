@@ -1,4 +1,5 @@
 applyComposeUIDeps(this)
+applyCoilDep(this)
 
 dependencies {
     //accompanist
@@ -6,4 +7,10 @@ dependencies {
     //compose
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
+
+    implementation "androidx.hilt:hilt-navigation-compose:$navigation_compose"
+    implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist"
+    implementation "com.github.FunkyMuse:Composed:$composed"
+    implementation project(path: ':resources:strings')
+    implementation project(path: ':resources:drawables')
 }

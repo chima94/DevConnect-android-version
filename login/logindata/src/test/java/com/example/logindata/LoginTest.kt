@@ -1,18 +1,5 @@
 package com.example.logindata
 
-import com.example.constants.Constant
-import com.example.datastore.AppDataStore
-import com.example.networkauth.DevConnectApiAuthService
-import com.example.registerdata.*
-import com.google.gson.GsonBuilder
-import kotlinx.coroutines.runBlocking
-import okhttp3.HttpUrl
-import okhttp3.mockwebserver.MockResponse
-import okhttp3.mockwebserver.MockWebServer
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.net.HttpURLConnection
 
 class LoginTest {

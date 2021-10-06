@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.errorcomponent.TextFieldError
+
 import com.example.util.EmailState
 import com.example.util.NameState
 import com.example.util.TextFieldState
@@ -118,9 +118,9 @@ fun Email(
         ),
         keyboardActions = KeyboardActions(onNext = {onImeAction()})
     )
-    if(!isLoginScreen){
-        emailState.getError()?.let { error -> TextFieldError(textError = error) }
-    }
+//    if(!isLoginScreen){
+//        emailState.getError()?.let { error -> TextFieldError(textError = error) }
+//    }
 
 }
 
@@ -161,7 +161,7 @@ fun Name(
         keyboardActions = KeyboardActions(onNext = {onImeAction()})
     )
 
-    nameState.getError()?.let { error -> TextFieldError(textError = error) }
+    /*nameState.getError()?.let { error -> TextFieldError(textError = error) }*/
 
 
 }
@@ -235,6 +235,6 @@ fun Password(
         }
     )
     if(!isLoginScreen){
-        passwordState.getError()?.let {error-> TextFieldError(textError = error) }
+       /* passwordState.getError()?.let {error-> TextFieldError(textError = error) }*/
     }
 }

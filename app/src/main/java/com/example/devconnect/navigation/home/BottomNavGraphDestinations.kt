@@ -4,13 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.example.bottomnavigation.*
-import com.example.developersui.Developers
+import com.example.developersui.DevelopersUI
 import com.example.postsui.Posts
 import com.example.profileui.Profile
 import com.example.settingui.Settings
 
 private val destinationsBottomNav: Map<BottomNavigationEntry, @Composable () -> Unit> = mapOf(
-    DeveloperRoute to { Developers()},
+    DeveloperRoute to { DevelopersUI()},
     PostsRoute to { Posts()},
     ProfileRoute to { Profile()},
     SettingsRoute to { Settings()}

@@ -123,7 +123,7 @@ subprojects {
             break
 
         //kotlin/java only module
-        case ["constants", "domain"]:
+        case ["constants", "domain",]:
             apply plugin: 'java-library'
             apply plugin: 'kotlin'
             applyKotlinModule(it)
