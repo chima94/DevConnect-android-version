@@ -15,9 +15,9 @@ dependencies {
     implementation project(path: ':domain')
     implementation project(path: ':retrofit')
     implementation project(path: ':cache:appdatabase')
-    implementation project(path: ':cache:account')
+    implementation project(path: ':cache:cacheaccount')
     implementation project(path: ':cache:cacheauth')
-    implementation project(path: ':datastore')
+    implementation project(path: ':cache:datastore')
     implementation project(path: ':constants')
     implementation project(path: ':session')
 

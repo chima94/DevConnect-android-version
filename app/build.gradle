@@ -137,6 +137,8 @@ dependencies {
     //theme
     implementation project(path: ':style:theme')
 
+    //drawable
+    implementation project(path: ':resources:drawables')
     //session
     implementation project(path: ':session')
 
@@ -148,5 +150,8 @@ dependencies {
 
     //util
     implementation project(path: ':util')
+
+    //constants
+    implementation project(path: ':constants')
 
 }

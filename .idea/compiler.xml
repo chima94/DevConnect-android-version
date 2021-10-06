@@ -4,28 +4,37 @@
     <bytecodeTargetLevel target="1.8">
       <module name="DevConnect.app" target="11" />
       <module name="DevConnect.bottomnavigation" target="11" />
-      <module name="DevConnect.cache.account" target="11" />
       <module name="DevConnect.cache.appdatabase" target="11" />
+      <module name="DevConnect.cache.cacheaccount" target="11" />
       <module name="DevConnect.cache.cacheauth" target="11" />
+      <module name="DevConnect.cache.datastore" target="11" />
       <module name="DevConnect.common.composeextension" target="11" />
       <module name="DevConnect.components.authcomponents" target="11" />
+      <module name="DevConnect.components.developercomponent" target="11" />
       <module name="DevConnect.components.errorcomponent" target="11" />
+      <module name="DevConnect.components.loadingcomponent" target="11" />
       <module name="DevConnect.components.statemessagecomponent" target="11" />
+      <module name="DevConnect.coroutines.appscope" target="11" />
+      <module name="DevConnect.coroutines.dispatchers" target="11" />
       <module name="DevConnect.datastore" target="11" />
+      <module name="DevConnect.developers.developersdata" target="11" />
       <module name="DevConnect.developers.developersui" target="11" />
       <module name="DevConnect.extensions" target="11" />
       <module name="DevConnect.home.homedestination" target="11" />
       <module name="DevConnect.home.homenavigation" target="11" />
       <module name="DevConnect.home.homeui" target="11" />
+      <module name="DevConnect.internetdetector" target="11" />
       <module name="DevConnect.login.logindata" target="11" />
       <module name="DevConnect.login.logindestination" target="11" />
       <module name="DevConnect.login.loginui" target="11" />
       <module name="DevConnect.navigator" target="11" />
       <module name="DevConnect.network.networkauth" target="11" />
+      <module name="DevConnect.network.networkdeveloper" target="11" />
       <module name="DevConnect.network.networkresponses" target="11" />
       <module name="DevConnect.onboard.onboarddata" target="11" />
       <module name="DevConnect.onboard.onboarddestination" target="11" />
       <module name="DevConnect.onboard.onboardui" target="11" />
+      <module name="DevConnect.paging" target="11" />
       <module name="DevConnect.posts.postsui" target="11" />
       <module name="DevConnect.profile.profileui" target="11" />
       <module name="DevConnect.register.registerdata" target="11" />

@@ -5,6 +5,6 @@ plugins {
 applyRoomDeps(this)
 
 dependencies {
-    implementation project(path: ':cache:account')
+    implementation project(path: ':cache:cacheaccount')
     implementation project(path: ':domain')
 }

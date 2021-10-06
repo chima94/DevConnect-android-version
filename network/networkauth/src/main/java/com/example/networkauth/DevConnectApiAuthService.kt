@@ -1,7 +1,6 @@
 package com.example.networkauth
 
 import com.example.networkresponses.AuthResponse
-import com.example.networkresponses.UserDto
 import retrofit2.http.*
 
 interface DevConnectApiAuthService {
