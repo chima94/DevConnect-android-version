@@ -13,6 +13,7 @@
       <module name="DevConnect.components.developercomponent" target="11" />
       <module name="DevConnect.components.errorcomponent" target="11" />
       <module name="DevConnect.components.loadingcomponent" target="11" />
+      <module name="DevConnect.components.profilecomponent" target="11" />
       <module name="DevConnect.components.statemessagecomponent" target="11" />
       <module name="DevConnect.coroutines.appscope" target="11" />
       <module name="DevConnect.coroutines.dispatchers" target="11" />

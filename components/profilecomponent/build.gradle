@@ -13,5 +13,4 @@ dependencies {
     implementation "com.github.FunkyMuse:Composed:$composed"
     implementation project(path: ':resources:strings')
     implementation project(path: ':resources:drawables')
-    implementation project(path: ':components:profilecomponent')
 }
