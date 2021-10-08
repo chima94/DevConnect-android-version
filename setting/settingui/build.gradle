@@ -4,6 +4,10 @@ dependencies {
     //accompanist
     implementation "com.google.accompanist:accompanist-insets:$accompanist"
     //compose
+
+    implementation "com.github.FunkyMuse:Composed:$composed"
+
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
+    implementation project(path: ':resources:strings')
 }

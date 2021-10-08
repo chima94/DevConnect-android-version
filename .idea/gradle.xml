@@ -24,6 +24,7 @@
             <option value="$PROJECT_DIR$/components/developercomponent" />
             <option value="$PROJECT_DIR$/components/errorcomponent" />
             <option value="$PROJECT_DIR$/components/loadingcomponent" />
+            <option value="$PROJECT_DIR$/components/profilecomponent" />
             <option value="$PROJECT_DIR$/components/statemessagecomponent" />
             <option value="$PROJECT_DIR$/constants" />
             <option value="$PROJECT_DIR$/coroutines" />

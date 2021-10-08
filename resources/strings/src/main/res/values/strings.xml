@@ -28,4 +28,22 @@
     <string name="settings">settings</string>
     <string name="developer_details">developer details</string>
     <string name="no_more_developers_to_load">No more Developer to load</string>
+    <string name="post">post</string>
+    <string name="version">Version</string>
+    <string name="github">github</string>
+    <string name="instagram">instagram</string>
+    <string name="linkedin">linkedIn</string>
+    <string name="twitter">twitter</string>
+    <string name="facebook">facebook</string>
+    <string name="about_me">About me</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="license">MIT 1.0</string>
+    <string name="license_title">License</string>
+    <string name="about_section">I am a positive, enthusiastic and self-motivated person who understands the important of open source and will work
+        hard to ensure i always contribute to the best of my ability for the good and benefit of the community.
+    </string>
+    <string name="my_skills">My Skills</string>
+    <string name="experience">Experience</string>
+    <string name="education">Education</string>
+    <string name="github_page">Github</string>
 </resources>
