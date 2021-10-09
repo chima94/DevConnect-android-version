@@ -13,6 +13,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowRight
 import androidx.compose.material.icons.filled.Facebook
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -33,11 +34,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.funkymuse.composed.core.textStyle
+import com.google.accompanist.insets.navigationBarsPadding
 import kotlin.math.ceil
 import kotlin.math.max
 
@@ -73,9 +76,6 @@ fun Modifier.gradientBackground(
 fun ProfileUI() {
     val scrollState = rememberScrollState(0)
     Scaffold(
-        topBar = {
-            TopAppBarView(scroll = scrollState.value.toFloat())
-        },
         content = {
             Box(
                 modifier = Modifier
@@ -83,6 +83,7 @@ fun ProfileUI() {
                     .semantics { testTag = "Profile Screen" }
             ){
                 TopBackground()
+                TopAppBarView(scroll = scrollState.value.toFloat())
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -203,21 +204,46 @@ fun BottomScrollingContent(){
             modifier = Modifier.padding(8.dp)
         )
         SkillSection()
+        Text(
+            text = stringResource(com.example.strings.R.string.more_info),
+            style = MaterialTheme.typography.h6,
+            modifier = Modifier.padding(start = 8.dp, top = 16.dp)
+        )
+        Divider(modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp))
+        EducationSection()
         ExperienceSection()
+        ProjectSection()
+
     }
 }
 
 
 
-
 @Composable
 fun EducationSection(){
-    Text(
-        text = stringResource(com.example.strings.R.string.education),
-        style = MaterialTheme.typography.h6,
-        modifier = Modifier.padding(start = 8.dp, top = 16.dp)
-    )
-    Divider(modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp))
+    Box(modifier = Modifier
+        .fillMaxWidth()
+        .size(50.dp)
+    ){
+        Card(elevation = 1.dp, modifier = Modifier.padding(start = 8.dp, end = 8.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(com.example.strings.R.string.education),
+                    style = MaterialTheme.typography.body1,
+                )
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Default.ArrowRight, contentDescription = null)
+                }
+            }
+        }
+    }
+
 }
 
 
@@ -226,107 +252,59 @@ fun EducationSection(){
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ExperienceSection(){
-    Text(
-        text = stringResource(com.example.strings.R.string.experience),
-        style = MaterialTheme.typography.h6,
-        modifier = Modifier.padding(start = 8.dp, top = 16.dp)
-    )
-    Divider(modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp))
-
-    StaggeredGrid {
-        LazyColumn{
-            items(experiences){e ->
-                ExperiencesRow(e = e)
+    Box(modifier = Modifier
+        .fillMaxWidth()
+        .size(50.dp)){
+        Card(elevation = 1.dp, modifier = Modifier.padding(start = 8.dp, end = 8.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(com.example.strings.R.string.experience),
+                    style = MaterialTheme.typography.body1,
+                )
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Default.ArrowRight, contentDescription = null)
+                }
             }
         }
     }
-
-   /* Box(
-        modifier = Modifier
-            .size(400.dp)
-            .padding(start = 8.dp)
-    ){
-        LazyColumn{
-            items(experiences){e ->
-                ExperiencesRow(e = e)
-            }
-        }
-        
-    }*/
-
 }
-
-
 
 
 @Composable
-fun ExperiencesRow(e : Experiences) {
-    Column {
-        Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 8.dp)
-        ) {
-            Text(
-                text = "${e.company}",
-                fontWeight = FontWeight.SemiBold
-            )
-            Text(
-                text = "${e.from} - ${e.to}",
-                fontSize = 12.sp,
-                fontWeight = FontWeight.SemiBold
-            )
-        }
-        Column{
-            Text(
-                text = "position: ${e.position}",
-                fontSize = 14.sp
-            )
-            Text(
-                text = "Job description: ${e.description}",
-                fontSize = 14.sp
-            )
+fun ProjectSection(){
+    Box(modifier = Modifier
+        .fillMaxWidth()
+        .size(150.dp)
+    )
+    {
+        Card(elevation = 1.dp, modifier = Modifier.padding(start = 8.dp, end = 8.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(com.example.strings.R.string.projects),
+                    style = MaterialTheme.typography.body1,
+                )
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Default.ArrowRight, contentDescription = null)
+                }
+            }
         }
     }
 }
 
 
-val experiences = listOf(
-    Experiences(
-        company = "nodexihub",
-        position = "Android Engineer",
-        description = "Building for the internet",
-        from = "02-07-2020",
-        to = "present"
-    ),
-    Experiences(
-        company = "Oseke Technologies",
-        position = "Internship",
-        description = "Co-organized training on embedded systems and artificial intelligence",
-        from = "02-07-2020",
-        to = "02-07-2020"
-    ),
-    Experiences(
-        company = "Interglobal Limited",
-        position = "Internship",
-        description = "System maintenance",
-        from = "02-07-2020",
-        to = "02-07-2020"
-    ),
-)
 
-
-
-
-
-data class Experiences(
-    val company: String?,
-    val position: String?,
-    val description: String?,
-    val from: String?,
-    val to: String?
-)
 
 
 
