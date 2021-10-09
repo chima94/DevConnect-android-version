@@ -45,6 +45,12 @@ fun Settings(){
         item {
             VersionNumber()
         }
+        item {
+            Logout()
+        }
+        item {
+            DeleteAccount()
+        }
     }
 }
 
@@ -112,6 +118,42 @@ fun Github() {
         )
     }
 }
+
+
+
+@Composable
+fun DeleteAccount() {
+    val context = LocalContext.current
+    SettingsItems(modifier = Modifier
+        .clickable {
+
+        }
+        .padding(vertical = 8.dp)) {
+        Text(
+            text = stringResource(com.example.strings.R.string.delete_account),
+            modifier = Modifier.padding(horizontal = 8.dp),
+            color = Color.Red
+        )
+    }
+}
+
+
+
+@Composable
+fun Logout() {
+    val context = LocalContext.current
+    SettingsItems(modifier = Modifier
+        .clickable {
+
+        }
+        .padding(vertical = 8.dp)) {
+        Text(
+            text = stringResource(id = com.example.strings.R.string.logout),
+            modifier = Modifier.padding(horizontal = 8.dp),
+        )
+    }
+}
+
 
 
 @Composable

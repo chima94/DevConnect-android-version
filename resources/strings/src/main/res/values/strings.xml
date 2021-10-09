@@ -45,5 +45,9 @@
     <string name="my_skills">My Skills</string>
     <string name="experience">Experience</string>
     <string name="education">Education</string>
-    <string name="github_page">Github</string>
+    <string name="github_page">Source Code</string>
+    <string name="projects">Projects</string>
+    <string name="more_info">More Info</string>
+    <string name="logout">Logout</string>
+    <string name="delete_account">Delete Account</string>
 </resources>

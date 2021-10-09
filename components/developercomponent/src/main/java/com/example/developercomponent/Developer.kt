@@ -42,7 +42,7 @@ fun Developers(
             .fillMaxWidth()
             .wrapContentHeight()
             .clip(Shapes.large),
-        elevation = 2.dp
+        elevation = 6.dp
     ) {
 
         Column(
