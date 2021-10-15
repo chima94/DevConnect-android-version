@@ -36,6 +36,7 @@
       <module name="DevConnect.onboard.onboarddestination" target="11" />
       <module name="DevConnect.onboard.onboardui" target="11" />
       <module name="DevConnect.paging" target="11" />
+      <module name="DevConnect.posts.postsdata" target="11" />
       <module name="DevConnect.posts.postsui" target="11" />
       <module name="DevConnect.profile.profileui" target="11" />
       <module name="DevConnect.register.registerdata" target="11" />

@@ -8,7 +8,7 @@ import com.example.cacheauth.AuthTokenDao
 import com.example.cacheauth.AuthTokenEntity
 
 
-@Database(entities = [AccountEntity::class, AuthTokenEntity::class], version = 1)
+@Database(entities = [AccountEntity::class, AuthTokenEntity::class], version = 2)
 abstract class AppDatabase : RoomDatabase(){
 
     abstract fun getAccountPropertiesDao(): AccountDao

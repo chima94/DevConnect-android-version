@@ -1,4 +1,4 @@
-package com.example.networkresponses
+package com.example.networkresponses.auth
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

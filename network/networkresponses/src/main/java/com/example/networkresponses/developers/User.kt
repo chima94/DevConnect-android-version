@@ -1,4 +1,4 @@
-package com.example.networkresponses.developerreponse
+package com.example.networkresponses.developers
 
 data class User(
     val _id: String,

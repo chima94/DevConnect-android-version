@@ -1,12 +1,12 @@
 package com.example.registerdata
 
 import com.example.account.AccountDao
-import com.example.account.toEntity
+import com.example.account.AccountEntity
 import com.example.cacheauth.AuthTokenDao
 import com.example.cacheauth.toEntity
 import com.example.constants.Constant
 import com.example.datastore.AppDataStore
-import com.example.domain.Account
+
 import com.example.networkauth.DevConnectApiAuthService
 import com.example.domain.AuthToken
 import com.example.retrofit.handleUseCaseException
@@ -39,17 +39,27 @@ class RegisterDatasource(
         hashMap["password"] = password
 
         val registerResponse = service.register(hashMap)
+        val user = service.user(registerResponse.token)
 
         //cache account details
-        val account = Account(
-            name = name,
-            email = email,
+        accountDao.insertAndReplace(
+            AccountEntity(
+                id = user.id,
+                email = user.email,
+                avatar = user.avatar,
+                date = user.date,
+                name = user.name
+            )
         )
-        accountDao.insertAndReplace(account.toEntity())
 
 
         //cache auth token
-        val authToken = AuthToken(account_email = email, token = registerResponse.token)
+        val authToken =
+            AuthToken(
+                id = user.id,
+                account_email = email,
+                token = registerResponse.token
+            )
         val result = authTokenDao.insert(authToken.toEntity())
         if(result < 0){
             throw Exception(Constant.ERROR_SAVE_AUTH_TOKEN)

@@ -9,9 +9,17 @@ import com.example.domain.Account
 data class AccountEntity(
 
     @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "id")
+    val id: String,
+
     @ColumnInfo(name = "email")
     val email : String,
 
+    @ColumnInfo(name = "avatar")
+    val avatar: String,
+
+    @ColumnInfo(name = "date")
+    val date: String,
 
     @ColumnInfo(name = "name")
     val name: String,
@@ -26,9 +34,10 @@ fun AccountEntity.toAccount(): Account{
 }
 
 
+/*
 fun Account.toEntity(): AccountEntity{
     return AccountEntity(
         name = name,
         email = email,
     )
-}
+}*/
