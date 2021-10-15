@@ -13,8 +13,8 @@ import com.example.domain.AuthToken
     foreignKeys = [
         ForeignKey(
             entity = AccountEntity::class,
-            parentColumns = ["email"],
-            childColumns = ["account_email"],
+            parentColumns = ["id"],
+            childColumns = ["id"],
             onDelete = ForeignKey.CASCADE
         )
     ]
@@ -22,6 +22,9 @@ import com.example.domain.AuthToken
 data class AuthTokenEntity(
 
     @PrimaryKey
+    @ColumnInfo
+    var id: String,
+
     @ColumnInfo
     var account_email : String = "",
 
@@ -36,6 +39,7 @@ fun AuthTokenEntity.toAuthToken(): AuthToken{
         throw Exception("token cannot be null")
     }
     return AuthToken(
+        id = id,
         account_email = account_email,
         token = token
     )
@@ -44,6 +48,7 @@ fun AuthTokenEntity.toAuthToken(): AuthToken{
 
 fun AuthToken.toEntity(): AuthTokenEntity{
     return AuthTokenEntity(
+        id = id,
         account_email = account_email,
         token = token
     )

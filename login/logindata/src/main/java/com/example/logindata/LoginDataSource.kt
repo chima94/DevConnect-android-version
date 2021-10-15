@@ -1,7 +1,8 @@
 package com.example.logindata
 
 import com.example.account.AccountDao
-import com.example.account.toEntity
+import com.example.account.AccountEntity
+
 import com.example.cacheauth.AuthTokenDao
 import com.example.cacheauth.toEntity
 import com.example.constants.Constant
@@ -36,15 +37,20 @@ class LoginDataSource(
         hashMap["password"] = password
 
         val loginResponse = service.login(hashMap)
+        val user = service.user(loginResponse.token)
 
         accountDao.insertOrIgnore(
-            Account(
-                email = email,
-                name = ""
-            ).toEntity()
+            AccountEntity(
+                id = user.id,
+                email = user.email,
+                avatar = user.avatar,
+                date = user.date,
+                name = user.name
+            )
         )
 
         val authToken = AuthToken(
+            id = user.id,
             account_email = email,
             token = loginResponse.token
         )

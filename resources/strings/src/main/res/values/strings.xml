@@ -19,6 +19,7 @@
     <string name="name">name</string>
     <string name="retry">retry</string>
     <string name="text_error">Error</string>
+    <string name="no_post_loaded_no_connect">Couldn\'t fetch posts, establish an active internet connection and reloading will start automatically ! !</string>
     <string name="no_developer_loaded_no_connect">Couldn\'t fetch developers, establish an active internet connection and reloading will start automatically ! !</string>
     <string name="no_connection_message_will_load_on_connection_achieved">No internet connection available, establish active internet connection and the content will automatically reload !</string>
     <string name="ok">ok</string>
@@ -28,6 +29,7 @@
     <string name="settings">settings</string>
     <string name="developer_details">developer details</string>
     <string name="no_more_developers_to_load">No more Developer to load</string>
+    <string name="no_more_posts_to_load">No more Post to load</string>
     <string name="post">post</string>
     <string name="version">Version</string>
     <string name="github">github</string>

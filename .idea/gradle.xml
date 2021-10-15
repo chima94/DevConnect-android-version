@@ -50,6 +50,7 @@
             <option value="$PROJECT_DIR$/onboard/onboardui" />
             <option value="$PROJECT_DIR$/paging" />
             <option value="$PROJECT_DIR$/posts" />
+            <option value="$PROJECT_DIR$/posts/postsdata" />
             <option value="$PROJECT_DIR$/posts/postsui" />
             <option value="$PROJECT_DIR$/profile" />
             <option value="$PROJECT_DIR$/profile/profileui" />

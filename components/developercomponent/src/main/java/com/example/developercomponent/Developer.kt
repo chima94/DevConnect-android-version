@@ -1,12 +1,9 @@
 package com.example.developercomponent
 
-import android.util.Log
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
@@ -23,12 +20,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.annotation.ExperimentalCoilApi
 import coil.compose.ImagePainter
 import coil.compose.rememberImagePainter
-import coil.transform.CircleCropTransformation
 import com.example.loadingcomponent.BoxShimmer
-import com.example.networkresponses.developerreponse.Developer
+import com.example.networkresponses.developers.Developer
 import com.example.shape.Shapes
 
 @Composable

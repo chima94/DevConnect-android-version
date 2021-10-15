@@ -8,6 +8,7 @@ import androidx.room.Query
 @Dao
 interface AuthTokenDao {
 
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(authToken: AuthTokenEntity): Long
 

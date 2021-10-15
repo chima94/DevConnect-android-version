@@ -8,9 +8,17 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
 
+    implementation "com.github.FunkyMuse:Composed:$composed"
     implementation "androidx.hilt:hilt-navigation-compose:$navigation_compose"
     implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist"
-    implementation "com.github.FunkyMuse:Composed:$composed"
+
+    implementation project(path: ':components:errorcomponent')
+    implementation project(path: ':developers:developersdata')
+
+    implementation project(path: ':paging')
     implementation project(path: ':resources:strings')
+    implementation project(path: ':network:networkresponses')
+    implementation project(path: ':posts:postsdata')
     implementation project(path: ':resources:drawables')
+    implementation project(path: ':util')
 }
